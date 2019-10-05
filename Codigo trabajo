@@ -1,0 +1,16 @@
+cd "C:\Users\VEC1803.UANDES\Downloads\bd"
+use "punto1.dta"
+
+***PARTE PRÁCTICA***
+ssc install outreg2
+*a*
+gen infiel = 1 if extramatrimonial>0
+replace infiel =0 if infiel >= . 
+
+*b*
+br
+reg infiel rating_matrimonio edad anhos_casados hijos religiosidad educ
+
+*d*
+predict prob, xb
+sum prob
